@@ -3,3 +3,17 @@
 @tailwind components;
 
 @tailwind utilities;
+
+
+header h1 {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+h1 img {
+    display: block;
+    width: 43px;
+    margin-right: 10px;
+}

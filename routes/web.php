@@ -19,8 +19,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('/tweets', 'TweetController', [
         'only' => ['store', 'index']
     ]);
-
 });
+
+Route::get('/profiles/{user}', 'ProfileController@show')->name('profile');
 
 Auth::routes();
 

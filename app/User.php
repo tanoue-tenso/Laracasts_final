@@ -71,4 +71,10 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(User::class, 'follows', 'user_id', 'following_user_id'); // memo: 第二引数にデーブル名, 第三引数に外部キー, 第四引数に関連キー
     }
+
+    // memo: ルートのパラメーターでレコードを識別するパラメーターのカラムを設定
+    public function getRouteKeyName()
+    {
+        return 'name';
+    }
 }

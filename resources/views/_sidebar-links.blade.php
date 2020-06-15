@@ -1,6 +1,6 @@
 <ul>
     <li>
-        <a class="font-bold text-lg mb-4 block" href="/">Home</a>
+        <a class="font-bold text-lg mb-4 block" href="{{ route('tweets.index') }}">Home</a>
     </li>
     <li>
         <a class="font-bold text-lg mb-4 block" href="/explore">Explore</a>
@@ -18,7 +18,7 @@
         <a class="font-bold text-lg mb-4 block" href="#">Lists</a>
     </li>
     <li>
-        <a class="font-bold text-lg mb-4 block" href="#">Profile</a>
+        <a class="font-bold text-lg mb-4 block" href="{{ route('profile', auth()->user()) }}">Profile</a>
     </li>
     <li>
         <a class="font-bold text-lg mb-4 block" href="#">More</a>

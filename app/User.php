@@ -49,4 +49,16 @@ class User extends Authenticatable
     {
         return Tweet::where('user_id', $this->id)->latest()->get();
     }
+
+    // フォローする(クリックしたユーザーのidをuser_idに、クイックされたユーザーのidをfollowing_user_idに保存)
+    public function follow(User $user)
+    {
+        return $this->follows()->save($user);
+    }
+
+    // フォローしているユーザー一覧表示
+    public function follows()
+    {
+        return $this->belongsToMany(User::class, 'follows', 'user_id', 'following_user_id'); // memo: 第二引数にデーブル名, 第三引数に外部キー, 第四引数に関連キー
+    }
 }

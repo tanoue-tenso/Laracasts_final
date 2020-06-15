@@ -2,7 +2,7 @@
 
     <div class="mr-2 flex-shrink-0">
         <a href="{{ route('profile', $tweet->user) }}">
-            <img src={{ auth()->user()->avatar }} alt="user" class="rounded-full mr-2">
+            <img src={{ auth()->user()->avatar }} alt="user" class="rounded-full mr-2" width="50" height="50">
         </a>
     </div>
 

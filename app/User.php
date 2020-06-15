@@ -41,7 +41,7 @@ class User extends Authenticatable
     // memo: get〇〇Attributeで呼び出す時は $user->〇〇 でいける！
     public function getAvatarAttribute()
     {
-        return "https://i.pravatar.cc/50?u=".$this->email;
+        return "https://i.pravatar.cc/200?u=".$this->email;
     }
 
     public function tweets()

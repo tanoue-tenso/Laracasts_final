@@ -14,7 +14,9 @@
             </div>
 
             <div class="flex">
-                <button href="" class="rounded-full border border-gray-300 py-2 px-4 text-black text-xs mr-2">Edit Profile</button>
+                @if (auth()->user()->is($user))
+                    <button href="" class="rounded-full border border-gray-300 py-2 px-4 text-black text-xs mr-2">Edit Profile</button>
+                @endif
 
                         {{-- コンポーネントへ$userの受け渡し --}}
                 <x-follow-button :user="$user"></x-follow-button>

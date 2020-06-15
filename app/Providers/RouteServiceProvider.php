@@ -21,7 +21,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    public const HOME = '/home';
+    public const HOME = '/tweets'; // memo: ログインしたらツイート一覧ページへ
 
     /**
      * Define your route model bindings, pattern filters, etc.

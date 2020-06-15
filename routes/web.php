@@ -15,10 +15,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'welcome');
 
-Route::resource('/tweets', 'TweetController', [
-    'only' => ['store']
-]);
+Route::group(['middleware' => 'auth'], function () {
+    Route::resource('/tweets', 'TweetController', [
+        'only' => ['store', 'index']
+    ]);
+
+});
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');

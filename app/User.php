@@ -44,10 +44,20 @@ class User extends Authenticatable
         return "https://i.pravatar.cc/50?u=".$this->email;
     }
 
+    public function tweets()
+    {
+        return $this->hasMany(Tweet::class);
+    }
 
+
+    // 自分と自分がフォローしているユーザーの投稿のみ表示
     public function timeline()
     {
-        return Tweet::where('user_id', $this->id)->latest()->get();
+        // return Tweet::where('user_id', $this->id)->latest()->get();
+        $ids = $this->follows()->pluck('id');
+        $ids->push($this->id);
+
+        return Tweet::whereIn('user_id', $ids)->latest()->get();
     }
 
     // フォローする(クリックしたユーザーのidをuser_idに、クイックされたユーザーのidをfollowing_user_idに保存)

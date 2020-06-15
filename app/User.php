@@ -38,6 +38,13 @@ class User extends Authenticatable
     ];
 
 
+    // memo: get〇〇Attributeで呼び出す時は $user->〇〇 でいける！
+    public function getAvatarAttribute()
+    {
+        return "https://i.pravatar.cc/50?u=".$this->email;
+    }
+
+
     public function timeline()
     {
         return Tweet::where('user_id', $this->id)->latest()->get();

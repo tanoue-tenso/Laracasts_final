@@ -1,6 +1,10 @@
 <x-app>
-    <header class="mb-6 relative">
-        <img class="mb-2" src="{{ asset('/images/profile-banner.jpg') }}" alt="banner-image">
+    <header class="mb-6">
+        <div class="relative">
+            <img class="mb-2" src="{{ asset('/images/profile-banner.jpg') }}" alt="banner-image">
+            <img src={{ $user->avatar }} alt="user" width="150" style="left: 50%;"
+                class="rounded-full mr-2 absolute bottom-0 transform -translate-x-1/2 translate-y-1/2">
+        </div>
 
         <div class="flex justify-between items-center mb-6">
             <div>
@@ -21,12 +25,6 @@
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corporis quod dignissimos corrupti officia, nam, magni ullam delectus culpa nobis repudiandae facilis nisi numquam ipsum quae libero blanditiis quisquam magnam accusamus!
         </p>
 
-        <img
-        src={{ $user->avatar }}
-        alt="user"
-        class="rounded-full mr-2 absolute"
-        style="width: 150px; left: calc(50% - 75px); top: 48%;"
-        >
     </header>
     <hr>
 

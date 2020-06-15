@@ -8,7 +8,7 @@
 
         <footer class="flex justify-between">
             <img src="{{ auth()->user()->avatar }}" alt="your avatar" class="rounded-full mr-2" width="50" height="50">
-            <button class="bg-blue-500 rounded-lg shadow py-2 px-2 text-white" type="submit">Tweet-a-roo!</button>
+            <button class="bg-blue-500 rounded-lg shadow py-2 px-2 text-white" type="submit">Pubish</button>
         </footer>
     </form>
 

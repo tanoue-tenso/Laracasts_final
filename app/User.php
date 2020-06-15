@@ -8,7 +8,7 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    use Notifiable, Followable;
 
     /**
      * The attributes that are mass assignable.
@@ -60,21 +60,10 @@ class User extends Authenticatable
         return Tweet::whereIn('user_id', $ids)->latest()->get();
     }
 
-    // フォローする(クリックしたユーザーのidをuser_idに、クイックされたユーザーのidをfollowing_user_idに保存)
-    public function follow(User $user)
-    {
-        return $this->follows()->save($user);
-    }
-
-    // フォローしているユーザー一覧表示
-    public function follows()
-    {
-        return $this->belongsToMany(User::class, 'follows', 'user_id', 'following_user_id'); // memo: 第二引数にデーブル名, 第三引数に外部キー, 第四引数に関連キー
-    }
-
     // memo: ルートのパラメーターでレコードを識別するパラメーターのカラムを設定
-    public function getRouteKeyName()
-    {
-        return 'name';
-    }
+    // 追記: web.phpに {user:name} とすればいらない(62より)
+    // public function getRouteKeyName()
+    // {
+    //     return 'name';
+    // }
 }

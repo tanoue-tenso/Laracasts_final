@@ -11,9 +11,10 @@ trait Followable
         return $this->follows()->save($user);
     }
 
-    public function following()
+    // 引数のユーザーをフォローしてる？メソッド
+    public function isFollow(User $user)
     {
-        //
+        return $this->follows->contains($user);
     }
 
     // フォローしているユーザー一覧表示

@@ -62,7 +62,8 @@
         </div>
 
         <div class="mb-6">
-            <button class="bg-blue-400 text-white rounded py-2 px-4 hover:bg-blue-500" type="submit">Submit</button>
+            <button class="bg-blue-400 text-white rounded py-2 px-4 hover:bg-blue-500 mr-4" type="submit">Submit</button>
+            <a href="/profiles/{{ $user->username }}" class="hover:underline">Cansell</a>
         </div>
     </form>
 </x-app>

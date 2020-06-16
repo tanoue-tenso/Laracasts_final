@@ -5,7 +5,8 @@
     <li>
         <a class="font-bold text-lg mb-4 block" href="/explore">Explore</a>
     </li>
-    <li>
+    {{-- 妥協してて草 --}}
+    {{-- <li>
         <a class="font-bold text-lg mb-4 block" href="#">Notifications</a>
     </li>
     <li>
@@ -16,11 +17,17 @@
     </li>
     <li>
         <a class="font-bold text-lg mb-4 block" href="#">Lists</a>
-    </li>
+    </li> --}}
     <li>
         <a class="font-bold text-lg mb-4 block" href="{{ route('profile', auth()->user()) }}">Profile</a>
     </li>
-    <li>
+    {{-- <li>
         <a class="font-bold text-lg mb-4 block" href="#">More</a>
+    </li> --}}
+    <li>
+        <form action="/logout" method="POST">
+            @csrf
+            <button class="font-bold text-lg">Logout</button>
+        </form>
     </li>
 </ul>

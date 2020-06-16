@@ -28,12 +28,14 @@ class ProfileController extends Controller
         $attributes = request()->validate([
                 'username' => ['string', 'required', 'max:255', 'alpha_dash', Rule::unique('users')->ignore($user)], // memo: 既に登録されているusernameと被るのを防ぐため、Rule::unique()を呼び出している
                 'name' => ['string', 'required', 'max:255'],
-                'avatar' => ['required', 'file'],
+                'avatar' => ['file'],
                 'email' => ['string', 'required', 'email', 'max:255', Rule::unique('users')->ignore($user)],
                 'password' => ['string', 'required', 'min:8', 'max:255', 'confirmed']
             ]);
 
-        $attributes['avatar'] = request('avatar')->store('avatars'); // storage/app/avatarsフォルダに保存, memo: envにFILESYSTEM_DRIVERでpublicを指定。 これでpublicにアクセスできる
+        if (request('avatar')) {
+            $attributes['avatar'] = request('avatar')->store('avatars'); // storage/app/avatarsフォルダに保存, memo: envにFILESYSTEM_DRIVERでpublicを指定。 これでpublicにアクセスできる
+        }
 
         $user->update($attributes);
 

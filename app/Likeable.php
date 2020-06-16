@@ -10,6 +10,12 @@ trait Likeable
         return $this->hasMany(Like::class);
     }
 
+    // 「いいね」もしくは「ダメね」の計算
+    public function countLikesOrDislikes($isLike)
+    {
+        return $this->likes->where('liked', $isLike)->count();
+    }
+
     // いいね！作成
     public function like()
     {

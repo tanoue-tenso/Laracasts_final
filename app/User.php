@@ -55,6 +55,11 @@ class User extends Authenticatable
         return $this->hasMany(Tweet::class)->latest();
     }
 
+    public function likes()
+    {
+        return $this->hasMany(Like::class);
+    }
+
 
     // 自分と自分がフォローしているユーザーの投稿のみ表示
     public function timeline()

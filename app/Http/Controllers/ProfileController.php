@@ -22,9 +22,10 @@ class ProfileController extends Controller
 
         return view('profiles.edit', compact('user'));
     }
-
+    
     public function update(User $user)
     {
+        Gate::authorize('edit', $user);
         $attributes = request()->validate([
                 'username' => ['string', 'required', 'max:255', 'alpha_dash', Rule::unique('users')->ignore($user)], // memo: 既に登録されているusernameと被るのを防ぐため、Rule::unique()を呼び出している
                 'name' => ['string', 'required', 'max:255'],

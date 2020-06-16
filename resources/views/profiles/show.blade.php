@@ -2,7 +2,7 @@
     <header class="mb-6">
         <div class="relative">
             <img class="mb-2" src="{{ asset('/images/profile-banner.jpg') }}" alt="banner-image">
-            <img src={{ $user->avatar }} alt="user" width="150" style="left: 50%;"
+            <img src={{ $user->avatar }} alt="user" width="150" style="left: 50%; height: 150px; object-fit: cover; object-position: center;"
                 class="rounded-full mr-2 absolute bottom-0 transform -translate-x-1/2 translate-y-1/2">
         </div>
 

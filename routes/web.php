@@ -20,10 +20,13 @@ Route::group(['middleware' => 'auth'], function () {
         'only' => ['store', 'index']
     ]);
 
+    Route::post('tweets/{tweet}/like', 'LikeController@store');
+    Route::delete('tweets/{tweet}/like', 'LikeController@destroy');
+
     Route::post('/profiles/{user:username}/follow', 'FollowsController@store');
     Route::get('/profiles/{user:username}/edit', 'ProfileController@edit');
     Route::patch('/profiles/{user:username}', 'ProfileController@update');
-    
+
     Route::get('/explore', 'ExploreController@index');
 });
 

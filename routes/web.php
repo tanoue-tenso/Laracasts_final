@@ -20,11 +20,11 @@ Route::group(['middleware' => 'auth'], function () {
         'only' => ['store', 'index']
     ]);
 
-    Route::post('/profiles/{user:name}/follow', 'FollowsController@store');
-    Route::get('/profiles/{user:name}/edit', 'ProfileController@edit');
+    Route::post('/profiles/{user:username}/follow', 'FollowsController@store');
+    Route::get('/profiles/{user:username}/edit', 'ProfileController@edit');
 });
 
-Route::get('/profiles/{user:name}', 'ProfileController@show')->name('profile');
+Route::get('/profiles/{user:username}', 'ProfileController@show')->name('profile');
 
 Auth::routes();
 

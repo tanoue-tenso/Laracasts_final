@@ -42,6 +42,13 @@ class User extends Authenticatable
         return asset("/storage/".$value);
     }
 
+    // memo: 更新時にパスワードが平文化してしまうので、それを修正するミューテタ
+    // みゅーてたはカラムの保存時に自動で読み込まれるので、特に呼び出す必要はなし
+    public function setPasswordAttribute($value)
+    {
+        $this->attributes['password'] = bcrypt($value); // bcryptを通す
+    }
+
     public function tweets()
     {
         return $this->hasMany(Tweet::class)->latest();

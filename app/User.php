@@ -39,6 +39,7 @@ class User extends Authenticatable
     // memo: get〇〇Attributeで呼び出す時は $user->〇〇 でいける！
     public function getAvatarAttribute($value)
     {
+        $value = $value !== null ? $value : 'avatars/default.png';
         return asset("/storage/".$value);
     }
 
